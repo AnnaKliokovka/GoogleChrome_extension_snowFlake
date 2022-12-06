@@ -1,0 +1,22 @@
+{
+    "name": "Happy new year",
+    "description": "HNY",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_icon": {
+            "16": "/images/snow_16px.png",
+            "32": "/images/snow_32px.png",
+            "48": "/images/snow_48px.png",
+            "128": "/images/snow_128px.png"
+        },
+        "default_popup": "popup.html"
+    },
+    "icons": {
+        "16": "/images/snow_16px.png",
+        "32": "/images/snow_32px.png",
+        "48": "/images/snow_48px.png",
+        "128": "/images/snow_128px.png"
+    },
+    "permissions": [ "activeTab", "scripting" ]
+}
