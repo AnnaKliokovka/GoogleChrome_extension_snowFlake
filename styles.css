@@ -1,17 +1,19 @@
 body {
-    background-color: powderblue;
+    background-color: white;
+    min-width: 300px;
 }
 
-h1 {
-    color: blue;
+div {
+    width: 100%;
+    text-align: center;
+    float: left;
 }
 
-p {
-    color: red;
+span {
+    font-size: 34px;
 }
 
-button {
-    font-size: 12px;
-    height: 40px;
-    width: 80px;
+img {
+    margin-left: 20px;
+    margin-right: 20px;
 }
