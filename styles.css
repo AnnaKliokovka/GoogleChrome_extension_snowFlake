@@ -1,19 +1,35 @@
 body {
-    background-color: white;
+    background-color: PapayaWhip;
     min-width: 300px;
-}
-
-div {
-    width: 100%;
+    font-family: 'Times New Roman', Times, serif;
+} 
+div{
+    width:100%;
     text-align: center;
-    float: left;
+    float:left; 
 }
 
-span {
-    font-size: 34px;
+span{
+  font-size: 34px;
 }
 
-img {
-    margin-left: 20px;
-    margin-right: 20px;
+img{  
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+button{ 
+  border: 0;
+  border-radius: 10px;
+  background: #BC8F8F;  
+  padding: 8px 16px;
+  margin: 10px;
+  font-size: 30px;
+  color: PapayaWhip;
+}
+
+button:hover {
+  font-weight:bold;
+  box-shadow: 0 0 0 4px Sienna;
+  color: Sienna;
 }
