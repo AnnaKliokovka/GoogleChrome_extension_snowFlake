@@ -41,16 +41,27 @@ function plus_time(){
 function start_time(){
   StartMinures = T_minutes.textContent;
   IsStart = true;
-  
+  minus.style.display = "none";
+  plus.style.display = "none";
+  start.style.display = "none";
+  stop.style.display = "inline-block";
+  restart.style.display = "inline-block"
 }
 
 function stop_time(){
   IsStart = false;
+  start.style.display = "inline-block"
+  stop.style.display = "none";
 }
 function restart_time(){
   IsStart = false;
   T_minutes.textContent = StartMinures;
   T_seconds.textContent = pad(0);
+  minus.style.display = "inline-block";
+  plus.style.display = "inline-block";
+  start.style.display = "inline-block"
+  stop.style.display = "none";
+  restart.style.display = "none";
 }
 
 function minus_seconds(){
