@@ -8,8 +8,9 @@ let restart = document.getElementById("Re-btn");
 let IsStart = false;
 let StartMinutes = 30;
 
+
 minus.addEventListener("click", async () => {
-    minus_time(5);
+    minus_time(1);
 });
 
 plus.addEventListener("click", async () => {
@@ -29,7 +30,7 @@ restart.addEventListener("click", async()=>{
 function minus_time(min_t){
   let t = T_minutes.textContent
   if (t>min_t)
-     T_minutes.textContent = t - 1;
+     T_minutes.textContent = pad(t - 1);
 }
 
 function plus_time(){
@@ -62,6 +63,7 @@ function restart_time(){
   start.style.display = "inline-block"
   stop.style.display = "none";
   restart.style.display = "none";
+  UpdateScene()
 }
 
 function minus_seconds(){
@@ -84,5 +86,21 @@ timer = setInterval(function(){
   minus_seconds()
   seconds = T_seconds.textContent;
   minutes = T_minutes.textContent;
+  if (minutes < 0.5*StartMinures){
+    document.getElementById("Flower_2").style.display = "inline-block";
+    document.getElementById("Flower_1").style.display = "none";
+  }
+    if (minutes == 0 && seconds == 0){
+      document.getElementById("Flower_3").style.display = "inline-block";
+      document.getElementById("Flower_2").style.display = "none";
+      IsStart = false;
+      stop.style.display = "none";
+    }
   }
 }, 1000)
+
+function UpdateScene() {
+    document.getElementById("Flower_1").style.display = "inline-block";
+      document.getElementById("Flower_3").style.display = "none";
+  document.getElementById("Flower_2").style.display = "none";
+}
