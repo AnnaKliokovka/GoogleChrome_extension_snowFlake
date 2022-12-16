@@ -5,23 +5,33 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
- <div>
-    <img src = "images/Flowers/Flower_0/1.JPG" width = 100 id = "Flower_1"/>
+  <table cellspacing="10px" >
+       <tr>
+          <td></td>
+          <td class="circle fixed-td">
+            <img src = "images/Flowers/Flower_0/1.JPG" width = 100  id = "Flower_1"/>
+    <div id = "proc"/>
     <img src = "images/Flowers/Flower_0/2.JPG" width = 100 style ="display : none" id = "Flower_2"/>
-    <img src = "images/Flowers/Flower_0/3.JPG" width = 100 style ="display : none" id = "Flower_3"/>
-  </div>
-     <div>
-   <img src = "https://pngimg.com/uploads/minus/minus_PNG6.png" width = 30 id = "MinusTime"/>
-   <span class = "Time" id = "Minutes">30</span>
+    <img src = "images/Flowers/Flower_0/3.JPG" width = 100 style ="display : none" id = "Flower_3"/>   
+         </td>
+          <td></td>
+       </tr>
+       <tr>
+          <td><img src = "https://pngimg.com/uploads/minus/minus_PNG6.png"  width = 30 id = "MinusTime"/></td>
+          <td> 
+            <span class = "Time" id = "Minutes">36</span>
    <span >:</span>
    <span id = "Seconds">00</span>
-   <img src = "https://pngimg.com/uploads/plus/plus_PNG30.png" width = 30 id = "PlusTime"/>
-  </div>
-  <div>
-   <button id ="St-btn" >СТАРТ</button>
-  <button style ="display : none" id ="Sp-btn">СТОП</button>
-  <button style ="display : none" id ="Re-btn">СБРОС</button>
-  </div>
+          </div>
+     </td>
+          <td><img src = "https://pngimg.com/uploads/plus/plus_PNG30.png" width = 30 id = "PlusTime"/></td>
+       </tr>
+       <tr>
+          <td><button id ="Sp-btn" disabled="disabled">СТОП</button></td>
+          <td><button id ="St-btn" >СТАРТ</button></td>
+          <td><button id ="Re-btn" disabled="disabled">СБРОС</button></td>
+       </tr>
+    </table>
     <script src="jquery-3.6.1.js"></script>
     <script src="popup.js"></script>
 </body>

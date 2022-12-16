@@ -6,7 +6,7 @@ let start = document.getElementById("St-btn");
 let stop = document.getElementById("Sp-btn");
 let restart = document.getElementById("Re-btn");
 let IsStart = false;
-let StartMinutes = 30;
+let StartMinutes = 36;
 
 
 minus.addEventListener("click", async () => {
@@ -44,15 +44,15 @@ function start_time(){
   IsStart = true;
   minus.style.display = "none";
   plus.style.display = "none";
-  start.style.display = "none";
-  stop.style.display = "inline-block";
-  restart.style.display = "inline-block"
+  start.disabled = true;
+  stop.disabled = false;
+  restart.disabled = false;
 }
 
 function stop_time(){
   IsStart = false;
-  start.style.display = "inline-block"
-  stop.style.display = "none";
+  start.disabled = false;
+  stop.disabled = true;
 }
 function restart_time(){
   IsStart = false;
@@ -60,9 +60,9 @@ function restart_time(){
   T_seconds.textContent = pad(0);
   minus.style.display = "inline-block";
   plus.style.display = "inline-block";
-  start.style.display = "inline-block"
-  stop.style.display = "none";
-  restart.style.display = "none";
+  start.disabled = false;
+  stop.disabled = true;
+  restart.disabled = true;
   UpdateScene()
 }
 
@@ -87,15 +87,16 @@ timer = setInterval(function(){
   seconds = T_seconds.textContent;
   minutes = T_minutes.textContent;
   if (minutes < 0.5*StartMinures){
-    document.getElementById("Flower_2").style.display = "inline-block";
+    document.getElementById("Flower_2").style.display = "relative";
     document.getElementById("Flower_1").style.display = "none";
   }
     if (minutes == 0 && seconds == 0){
       document.getElementById("Flower_3").style.display = "inline-block";
       document.getElementById("Flower_2").style.display = "none";
       IsStart = false;
-      stop.style.display = "none";
+      stop.disabled = true;
     }
+     MoveTime()
   }
 }, 1000)
 
@@ -103,4 +104,23 @@ function UpdateScene() {
     document.getElementById("Flower_1").style.display = "inline-block";
       document.getElementById("Flower_3").style.display = "none";
   document.getElementById("Flower_2").style.display = "none";
+}
+
+
+let Cx = 90, Cy = -80;
+function getCenter(){
+  let main_circle = document.getElementById("circle");
+  Cx =0.5* main_circle.offsetWidth ;
+  Cy = 0.5* main_circle.offsetHeight;
+}
+
+function MoveTime(){
+  var t_proc=100*(StartMinutes-T_minutes.textContent)/StartMinutes;
+  let phi = Math.PI*(360*t_proc/100)/180; 
+  document.getElementById("proc").style.left = Cx + radius()*Math.sin(phi) + 'px';
+  document.getElementById("proc").style.top = Cy-radius()*Math.cos(phi)+'px';
+}
+
+function radius(){
+  return 100;
 }
