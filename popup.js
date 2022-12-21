@@ -6,7 +6,8 @@ let start = document.getElementById("St-btn");
 let stop = document.getElementById("Sp-btn");
 let restart = document.getElementById("Re-btn");
 let IsStart = false;
-let StartMinutes = 36;
+let StartMinutes = 0;
+let StartTime = 0;
 
 
 minus.addEventListener("click", async () => {
@@ -40,7 +41,8 @@ function plus_time(){
 }
 
 function start_time(){
-  StartMinures = T_minutes.textContent;
+  StartMinutes = T_minutes.textContent;
+  StartTime = T_minutes.textContent*60+parseInt(T_seconds.textContent)
   IsStart = true;
   minus.style.display = "none";
   plus.style.display = "none";
@@ -56,7 +58,7 @@ function stop_time(){
 }
 function restart_time(){
   IsStart = false;
-  T_minutes.textContent = StartMinures;
+  T_minutes.textContent = StartMinutes;
   T_seconds.textContent = pad(0);
   minus.style.display = "inline-block";
   plus.style.display = "inline-block";
@@ -86,7 +88,8 @@ timer = setInterval(function(){
   minus_seconds()
   seconds = T_seconds.textContent;
   minutes = T_minutes.textContent;
-  if (minutes < 0.5*StartMinures){
+  MoveTime();
+  if (minutes < 0.5*StartMinutes){
     document.getElementById("Flower_2").style.display = "relative";
     document.getElementById("Flower_1").style.display = "none";
   }
@@ -96,7 +99,6 @@ timer = setInterval(function(){
       IsStart = false;
       stop.disabled = true;
     }
-     MoveTime()
   }
 }, 1000)
 
@@ -115,7 +117,8 @@ function getCenter(){
 }
 
 function MoveTime(){
-  var t_proc=100*(StartMinutes-T_minutes.textContent)/StartMinutes;
+  document.getElementById("Console").textContent = StartTime;
+  var t_proc=100*(StartTime-60*T_minutes.textContent-T_seconds.textContent)/StartTime;
   let phi = Math.PI*(360*t_proc/100)/180; 
   document.getElementById("proc").style.left = Cx + radius()*Math.sin(phi) + 'px';
   document.getElementById("proc").style.top = Cy-radius()*Math.cos(phi)+'px';
